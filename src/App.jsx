@@ -1,7 +1,6 @@
 import "./App.css";
-import Header from './Header';
-import Todos from './Todos';
-import Footer from './Footer';
+import Header from './components/Header';
+import Todos from './components/Todos';
 
 function App() {
   const todoData = [
@@ -30,10 +29,9 @@ function App() {
   return (
     <main>
       <Header>
-        <h1> To Do App</h1>
+        <h1>To Do App</h1>
       </Header>
       <Todos todoData={todoData} />
-      <Footer />
     </main>
   );
 }

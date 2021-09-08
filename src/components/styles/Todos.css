@@ -1,0 +1,107 @@
+.completed {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.todo_input-container {
+  font-family: 'Space Mono', monospace;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width:  100%;
+}
+
+.container {
+  font-family: 'Space Mono', monospace;
+  display: flex;
+  justify-content: center;
+  width:  100%;
+}
+
+.todo_input {
+  background-color: #121212;
+  border: 1px rgba(255, 255, 241, 0.44) solid;
+  box-shadow: 0 5px 15px 0 rgba(255, 255, 241, 0.44);
+  border-radius: 0px;
+  padding: 6px 10px;
+  margin: 0 auto;
+  height: 48px;
+  width: 100vh;
+}
+
+.todo_item {
+  width:  100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+  border: 1px rgba(55, 200, 78, 0.45) solid;
+  box-shadow: 0 5px 15px 0 rgba(117, 255, 145, 0.32);
+  border-radius: 0px;
+  padding: 6px 10px;
+  margin-bottom: 20px;
+  flex-basis: 0px;
+  flex-grow: 0;     /* do not grow   - initial value: 0 */
+  flex-shrink: 0;
+}
+
+.todo_item:hover {
+  border: 1px rgba(55, 200, 78, 0.45) solid;
+  color: rgba(95, 159, 96, 1);
+  background-color: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.todo_item button {
+  padding: 8px 8px;
+  font-size: 1rem;
+  width: auto;
+  height: 100%;
+  margin-left: 1rem;
+  color: white;
+  background-color: #121212;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px rgba(243, 107, 48, 0.44) solid;
+  box-shadow: 0 5px 15px 0 rgba(243, 107, 48, 0.44);
+  border-radius: 0px;
+}
+
+.todo_item p {
+  word-break: break-all;
+  width: auto;
+}
+
+.todo_check {
+  width:  24px;
+  height: 24px;
+}
+
+.todos_container {
+  margin-top: 2rem;
+  padding: 12px 12px 12px 12px;
+  font-size: 1.2rem;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.todo_action {
+  margin-left: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  align-content: space-around;
+}
+
+.btn-todo:hover {
+  background-color: rgba(243, 107, 48, 0.44);
+  color: black;
+}
+
+h1 {
+  font-size: 1.35rem;
+  font-weight: bold;
+}
