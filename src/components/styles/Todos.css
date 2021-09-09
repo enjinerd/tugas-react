@@ -31,6 +31,7 @@
 
 .todo_item {
   width:  100vh;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,20 +54,6 @@
   -webkit-backdrop-filter: blur(4px);
 }
 
-.todo_item button {
-  padding: 8px 8px;
-  font-size: 1rem;
-  width: auto;
-  height: 100%;
-  margin-left: 1rem;
-  color: white;
-  background-color: #121212;
-  text-transform: uppercase;
-  font-weight: bold;
-  border: 1px rgba(243, 107, 48, 0.44) solid;
-  box-shadow: 0 5px 15px 0 rgba(243, 107, 48, 0.44);
-  border-radius: 0px;
-}
 
 .todo_item p {
   word-break: break-all;
@@ -105,11 +92,6 @@
   align-content: space-around;
 }
 
-.btn-todo:hover {
-  background-color: rgba(243, 107, 48, 0.44);
-  color: black;
-}
-
 h1 {
   font-size: 1.35rem;
   font-weight: bold;
@@ -124,11 +106,6 @@ h1 {
 .todo_filter-placing p {
   font-size: 1.35rem;
   font-weight: bold;
-}
-
-.clicked {
-  background-color: rgba(243, 107, 48, 0.44) !important;
-  color: white;
 }
 
 /**

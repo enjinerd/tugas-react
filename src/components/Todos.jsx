@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './styles/Todos.css'
-import Button from './Button'
+import Button from 'components/Button'
 
 function Todos({todoData}) {
   const [todos, setTodo] = useState(todoData)
@@ -39,7 +39,7 @@ function Todos({todoData}) {
   }
 
   function deleteTask(e) {
-   const id = parseInt(e.currentTarget.getAttribute('todo-id'))
+   const id = parseInt(e.currentTarget.getAttribute('id'))
    const remainingTask = todos.filter((todo) => todo.id !== id)
     .map((todo, idx) => {
       return {...todo, id : idx + 1} 
@@ -90,15 +90,15 @@ function Todos({todoData}) {
     <section className="todo_input-container">
       <div className="todo_input-placing">
         <input type="text" className="todo_input" onChange={handleChange} onKeyDown={addTask} placeHolder="New Task..." />
-        <Button onClick={addTask}>Add</Button>
+        <Button isPrimary onClick={addTask} >Add</Button>
       </div>
     </section>
     <section className="todo_filter-container">
       <div className="todo_filter-placing">
         <p> Filter : </p>
-        <button className={isClicked.done ? 'clicked': ''} id="done" onClick={handleFilter}>Done</button>
-        <button className={isClicked.doing ? 'clicked' : ''} id="doing" onClick={handleFilter}>Doing</button>
-        <button className={isClicked.all ? 'clicked' : ''} id="all" onClick={handleFilter}>All</button>
+        <Button isPrimary={isClicked.done} isSecondary id="done" onClick={handleFilter}>Done</Button>
+        <Button isPrimary={isClicked.doing} isSecondary id="doing" onClick={handleFilter}>Doing</Button>
+        <Button isPrimary={isClicked.all} isSecondary id="all" onClick={handleFilter}>All</Button>
       </div>
     </section>
     <div class="container">
@@ -117,7 +117,7 @@ function Todos({todoData}) {
           <p className={d.completed ? "completed" : "uncompleted"}>{d.title}</p>
           <div className="todo_action">
           <input className="todo_check" type="checkbox" todo-id={d.id} onChange={checkedTask} checked={d.completed} />
-          <button className="btn-todo" todo-id={d.id} onClick={deleteTask}>DELETE</button>
+          <Button isOutlineSecondary id={d.id} onClick={deleteTask}>DELETE</Button>
           </div>
         </div>
       ))}

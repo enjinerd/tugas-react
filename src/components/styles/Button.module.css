@@ -1,0 +1,43 @@
+.button {
+  min-width: 4.5rem;
+}
+
+.primary:hover {
+  background-color: rgba(224, 224, 215, 0.48);
+  color: black;
+}
+
+.primary {
+  border: 1px rgba(55, 200, 78, 0.45) solid;
+  background-color: rgba(117, 255, 145, 0.32);
+  box-shadow: 0 5px 15px 0 rgba(117, 255, 145, 0.32);
+  border-radius: 0px;
+}
+
+.secondary:hover {
+  background-color: rgba(224, 224, 215, 0.48);
+  color: black;
+}
+
+.secondary {
+  border: 1px rgba(243, 107, 48, 0.44) solid;
+  background-color: rgba(243, 107, 48, 0.44); 
+  box-shadow: 0 5px 15px 0 rgba(243, 107, 48, 0.44);
+  border-radius: 0px;
+}
+
+.outline_primary {
+  background-color: #121212 !important;
+  box-shadow: 0 5px 15px 0 rgba(117, 255, 145, 0.32);
+  border: 1px rgba(55, 200, 78, 0.45) solid;
+}
+
+.outline_secondary {
+  background-color: #121212 !important;
+  box-shadow: 0 5px 15px 0 rgba(243, 107, 48, 0.44);
+  border: 1px rgba(243, 107, 48, 0.44) solid;
+}
+
+.outline_secondary:hover {
+  background-color: rgba(243, 107, 48, 0.44) !important;
+}

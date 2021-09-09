@@ -1,0 +1,30 @@
+.not_found_page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.not_found_page h1 {
+  border: 1px rgba(255, 255, 241, 0.44) solid;
+  box-shadow: 0 5px 15px 0 rgba(255, 255, 241, 0.44);
+  padding: 1.25rem 1.34rem;
+  text-align: center;
+  font-size: 2.75rem;
+  color: white;
+}
+
+.not_found_back {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.not_found_back p {
+  font-weight: bold;
+  font-size: 1.45rem;
+}
+
