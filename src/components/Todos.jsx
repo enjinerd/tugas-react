@@ -5,6 +5,8 @@ import Button from './Button'
 function Todos({todoData}) {
   const [todos, setTodo] = useState(todoData)
   const [inputData, setInput] = useState('')
+  const [filter, setFilter] = useState(false)
+  const [filterAll, setFilterAll] = useState(true)
   
   function addTask(e) {
     const newTask = {
@@ -55,6 +57,19 @@ function Todos({todoData}) {
   function handleChange(e) {
     setInput(e.target.value)
   }
+
+  function handleFilter(e) {
+    const id = e.currentTarget.getAttribute('id')
+    if(id == 'done') {
+      setFilter(true)
+      setFilterAll(false)
+    } else if(id == 'doing') {
+      setFilter(false)
+      setFilterAll(false)
+    } else if(id == 'all') {
+      setFilterAll(true)
+    }
+  }
    
   return (
     <>
@@ -64,9 +79,25 @@ function Todos({todoData}) {
         <Button onClick={addTask}>Add</Button>
       </div>
     </section>
+    <section className="todo_filter-container">
+      <div className="todo_filter-placing">
+        <p> Filter : </p>
+        <button id="done" onClick={handleFilter}>Done</button>
+        <button id="doing" onClick={handleFilter}>Doing</button>
+        <button id="all" onClick={handleFilter}>All</button>
+      </div>
+    </section>
     <div class="container">
     <section className="todos_container">
-      {todos.map((d, i) => (
+      {todos.filter((d) => {
+        if(filter && filterAll !== true) {
+          return d.completed == true
+        } else if(!filter && filterAll !== true) {
+          return d.completed == false
+        } else if(filterAll == true) {
+          return d
+        }
+      }).map((d, i) => (
         <div className="todo_item" key={i}>
           <p className={d.completed ? "completed" : "uncompleted"}>{d.title}</p>
           <div className="todo_action">

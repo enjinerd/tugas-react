@@ -3,7 +3,7 @@
   font-style: italic;
 }
 
-.todo_input-container {
+.todo_input-container, .todo_filter-container {
   font-family: 'Space Mono', monospace;
   margin-top: 2rem;
   display: flex;
@@ -103,5 +103,16 @@
 
 h1 {
   font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.todo_filter-placing {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.todo_filter-placing p {
+  font-size: 1.25rem;
   font-weight: bold;
 }
