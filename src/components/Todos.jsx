@@ -7,6 +7,11 @@ function Todos({todoData}) {
   const [inputData, setInput] = useState('')
   const [filter, setFilter] = useState(false)
   const [filterAll, setFilterAll] = useState(true)
+  const [isClicked, setClicked] = useState({
+    done: false,
+    doing: false,
+    all: true
+  })
   
   function addTask(e) {
     const newTask = {
@@ -45,7 +50,7 @@ function Todos({todoData}) {
   function checkedTask(e) {
    const id = parseInt(e.currentTarget.getAttribute('todo-id'))
    const checkingTask = todos.map((todo) => {
-     if(todo.id == id) {
+     if(todo.id === id) {
        return {...todo, completed: !todo.completed}
      }
      return todo
@@ -60,14 +65,23 @@ function Todos({todoData}) {
 
   function handleFilter(e) {
     const id = e.currentTarget.getAttribute('id')
-    if(id == 'done') {
+    if(id === 'done') {
       setFilter(true)
       setFilterAll(false)
-    } else if(id == 'doing') {
+      setClicked({
+        done: true
+      })
+    } else if(id === 'doing') {
       setFilter(false)
       setFilterAll(false)
-    } else if(id == 'all') {
+      setClicked({
+        doing: true
+      })
+    } else if(id === 'all') {
       setFilterAll(true)
+      setClicked({
+        all: true 
+      })
     }
   }
    
@@ -82,23 +96,24 @@ function Todos({todoData}) {
     <section className="todo_filter-container">
       <div className="todo_filter-placing">
         <p> Filter : </p>
-        <button id="done" onClick={handleFilter}>Done</button>
-        <button id="doing" onClick={handleFilter}>Doing</button>
-        <button id="all" onClick={handleFilter}>All</button>
+        <button className={isClicked.done ? 'clicked': ''} id="done" onClick={handleFilter}>Done</button>
+        <button className={isClicked.doing ? 'clicked' : ''} id="doing" onClick={handleFilter}>Doing</button>
+        <button className={isClicked.all ? 'clicked' : ''} id="all" onClick={handleFilter}>All</button>
       </div>
     </section>
     <div class="container">
     <section className="todos_container">
       {todos.filter((d) => {
         if(filter && filterAll !== true) {
-          return d.completed == true
+          return d.completed === true
         } else if(!filter && filterAll !== true) {
-          return d.completed == false
-        } else if(filterAll == true) {
+          return d.completed === false
+        } else if(filterAll === true) {
           return d
         }
+        return d
       }).map((d, i) => (
-        <div className="todo_item" key={i}>
+        <div className={d.completed ? "todo_item-completed todo_item" : "todo_item"} key={i}>
           <p className={d.completed ? "completed" : "uncompleted"}>{d.title}</p>
           <div className="todo_action">
           <input className="todo_check" type="checkbox" todo-id={d.id} onChange={checkedTask} checked={d.completed} />
@@ -106,7 +121,7 @@ function Todos({todoData}) {
           </div>
         </div>
       ))}
-      {todos.length == 0 && <h1>No Todos.</h1>}
+      {todos.length === 0 && <h1>No Todos.</h1>}
     </section>
     </div>
     </>
