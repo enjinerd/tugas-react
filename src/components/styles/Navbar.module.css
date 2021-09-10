@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.45rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.nav p {
+  margin: 0px 1.2rem;
+  font-weight: 400;
+}
+
+.nav p:hover {
+  border-bottom:  4px rgba(243, 107, 48, 0.44) solid;
+}

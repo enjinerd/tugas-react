@@ -28,9 +28,7 @@ function App() {
 
   return (
     <main>
-      <Header>
-        <h1>To Do App</h1>
-      </Header>
+      <Header />
       <Todos todoData={todoData} />
     </main>
   );

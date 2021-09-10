@@ -1,0 +1,10 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.65rem;
+}
+
+.btn_about {
+  display: flex;
+  flex-direction: row;
+}
