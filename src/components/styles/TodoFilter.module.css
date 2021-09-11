@@ -1,0 +1,19 @@
+.todo_filter-container {
+  font-family: 'Space Mono', monospace;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width:  100%;
+}
+
+.todo_filter_placing {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.todo_filter_placing p {
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+

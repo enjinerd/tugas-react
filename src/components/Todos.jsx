@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import './styles/Todos.css'
-import Button from 'components/Button'
+import TodoItem from 'components/TodoItem'
+import TodoInput from 'components/TodoInput'
+import TodoFilter from 'components/TodoFilter'
 
 function Todos({todoData}) {
   const [todos, setTodo] = useState(todoData)
@@ -48,7 +50,7 @@ function Todos({todoData}) {
   }
 
   function checkedTask(e) {
-   const id = parseInt(e.currentTarget.getAttribute('todo-id'))
+   const id = parseInt(e.currentTarget.getAttribute('id'))
    const checkingTask = todos.map((todo) => {
      if(todo.id === id) {
        return {...todo, completed: !todo.completed}
@@ -87,42 +89,36 @@ function Todos({todoData}) {
    
   return (
     <>
-    <section className="todo_input-container">
-      <div className="todo_input-placing">
-        <input type="text" className="todo_input" onChange={handleChange} onKeyDown={addTask} placeHolder="New Task..." />
-        <Button isPrimary onClick={addTask} >Add</Button>
-      </div>
-    </section>
-    <section className="todo_filter-container">
-      <div className="todo_filter-placing">
-        <p> Filter : </p>
-        <Button isPrimary={isClicked.done} isSecondary id="done" onClick={handleFilter}>Done</Button>
-        <Button isPrimary={isClicked.doing} isSecondary id="doing" onClick={handleFilter}>Doing</Button>
-        <Button isPrimary={isClicked.all} isSecondary id="all" onClick={handleFilter}>All</Button>
-      </div>
-    </section>
+    <TodoInput
+      handleChange = {handleChange}
+      handleAddTask = {addTask}
+    />
+    <TodoFilter
+      isClicked = {isClicked}
+      onClick = {handleFilter}
+    />
     <div class="container">
-    <section className="todos_container">
-      {todos.filter((d) => {
-        if(filter && filterAll !== true) {
-          return d.completed === true
-        } else if(!filter && filterAll !== true) {
-          return d.completed === false
-        } else if(filterAll === true) {
+      <section className="todos_container">
+        {todos.filter((d) => {
+          if(filter && filterAll !== true) {
+            return d.completed === true
+          } else if(!filter && filterAll !== true) {
+            return d.completed === false
+          } else if(filterAll === true) {
+            return d
+          }
           return d
-        }
-        return d
-      }).map((d, i) => (
-        <div className={d.completed ? "todo_item-completed todo_item" : "todo_item"} key={i}>
-          <p className={d.completed ? "completed" : "uncompleted"}>{d.title}</p>
-          <div className="todo_action">
-          <input className="todo_check" type="checkbox" todo-id={d.id} onChange={checkedTask} checked={d.completed} />
-          <Button isOutlineSecondary id={d.id} onClick={deleteTask}>DELETE</Button>
-          </div>
-        </div>
-      ))}
-      {todos.length === 0 && <h1>No Todos.</h1>}
-    </section>
+        }).map(({id, title, completed}) => (
+          <TodoItem
+            id = {id}
+            title = {title}
+            completed = {completed}
+            onChange = {checkedTask}
+           onClick  = {deleteTask}
+          />
+        ))}
+        {todos.length === 0 && <h1>No Todos.</h1>}
+      </section>
     </div>
     </>
   )
