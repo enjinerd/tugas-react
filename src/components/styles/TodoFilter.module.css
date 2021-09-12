@@ -1,19 +1,27 @@
-.todo_filter-container {
+.todo_filter_container {
   font-family: 'Space Mono', monospace;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
-  width:  100%;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
 }
 
 .todo_filter_placing {
   display: flex;
   flex-direction: row;
-  align-items: center
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  width:  100%;
 }
 
 .todo_filter_placing p {
+  align-items: center;
   font-size: 1.35rem;
   font-weight: bold;
+  margin-right: 2rem;
 }
 

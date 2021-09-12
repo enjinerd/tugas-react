@@ -48,13 +48,10 @@
   height: 24px;
 }
 
-.todo_action {
-  margin-left: 0.75rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
+.todo_btn {
+  margin-left: 10px;
+  justify-content: center;
+  justify-self: center;
   align-items: center;
-  align-content: space-around;
+  align-self: center;
 }
-
-

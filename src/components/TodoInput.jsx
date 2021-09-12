@@ -6,7 +6,7 @@ const TodoInput = ({ handleChange, handleAddTask }) =>{
     <section className={styles.todo_input_container}>
       <div className={styles.todo_input_placing}>
         <input type="text" className={styles.todo_input} onChange={handleChange} onKeyDown={handleAddTask} placeHolder="New Task..." />
-        <Button isPrimary onClick={handleAddTask} >Add</Button>
+        <Button className={styles.btn_add} isPrimary onClick={handleAddTask} >Add</Button>
       </div>
     </section>
   )  

@@ -7,7 +7,7 @@ const TodoItem = ({ id, title, completed, onChange, onClick}) => {
       <p className={completed ? styles.completed : "uncompleted"}>{title}</p>
       <div className={styles.todo_action}>
         <input id={id} className={styles.todo_check} type="checkbox" onChange={onChange} checked={completed} />
-        <Button isOutlineSecondary id={id} onClick={onClick}>DELETE</Button>
+        <Button className={styles.todo_btn} isOutlineSecondary id={id} onClick={onClick}>DELETE</Button>
        </div>
     </div>
   )

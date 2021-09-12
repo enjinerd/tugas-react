@@ -6,6 +6,11 @@
   width:  100%;
 }
 
+.todo_input_container .btn_add {
+  margin-left: 10px;
+  height: fit-content;
+}
+
 .todo_input {
   background-color: #121212;
   border: 1px rgba(255, 255, 241, 0.44) solid;
