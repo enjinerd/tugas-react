@@ -120,9 +120,9 @@ function Form() {
           <input id="num_phone" name="num_phone" onChange={handleData} type="text" value={formData.num_phone} />
           <label htmlFor="education"> Latar Belakang Pendidikan <span>*</span></label>
           <aside id="education" className={styles.input_radio}>
-            <input type="radio" id="edu_IT" name="education" value="edu_IT" onChange={handleData} />
+            <input type="radio" id="edu_IT" name="education" value="edu_IT" onChange={handleData} checked={formData.education == 'edu_IT'} />
             <label htmlFor="edu_IT">IT</label>
-            <input type="radio" id="edu_NonIT" name="education" value="edu_NonIT" onClick={handleData} />
+            <input type="radio" id="edu_NonIT" name="education" value="edu_NonIT" onClick={handleData} checked={formData.education == 'edu_NonIT'} />
             <label htmlFor="edu_NonIT">Non IT</label>
           </aside>
           <label htmlfor="coding_class">Kelas Coding yang Dipilih <span>*</span></label>
