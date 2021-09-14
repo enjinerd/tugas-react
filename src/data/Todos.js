@@ -30,7 +30,7 @@ import {createSlice} from '@reduxjs/toolkit'
   reducers: {
     addTodo: (state, action) => {
         state.data.push({
-          id: 34,
+          id: state.data.length + 1 ,
           title: action.payload,
           completed: false
         })
