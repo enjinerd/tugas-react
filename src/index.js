@@ -3,11 +3,46 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
+import {Provider} from 'react-redux';
+import todoSlice from 'data/Todos'
+import { 
+  persistStore, 
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage' 
+import { PersistGate } from 'redux-persist/integration/react';
+
+const persistConfig = {
+  key: 'todos',
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, todoSlice)
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware({
+    serializeableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+    }
+  })
+}) 
+
+const persistor = persistStore(store)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
   document.getElementById('root')
 );
 
