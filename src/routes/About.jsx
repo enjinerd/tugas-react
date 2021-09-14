@@ -1,12 +1,10 @@
 import React from 'react'
-import {Route, Switch, Redirect, useRouteMatch, useParams } from 'react-router-dom';
-import {About as AboutPage, AboutAuthor, AboutApp} from 'pages/About'
-import NotFound from 'pages/NotFound'
+import {Route, Switch, useRouteMatch} from 'react-router-dom';
+import {About as AboutPage} from 'pages/About'
 import AboutParams from 'pages/AboutParams'
 
 const About = () => {
   const {path} = useRouteMatch()
-  const {about_page} = useParams()
 
   return (
     <Switch>

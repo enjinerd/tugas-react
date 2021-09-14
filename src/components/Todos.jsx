@@ -9,7 +9,6 @@ import { addTodo, removeTodo, toggleStatus } from "data/Todos";
 function Todos({todoData}) {
   const todoList = useSelector(state => state)
   const dispatch = useDispatch()
-  const [todos, setTodo] = useState(todoData)
   const [inputData, setInput] = useState('')
   const [filter, setFilter] = useState(false)
   const [filterAll, setFilterAll] = useState(true)
@@ -97,7 +96,7 @@ function Todos({todoData}) {
             onClick  = {deleteTask}
           />
         ))}
-        {todos.length === 0 && <h1>No Todos.</h1>}
+        {todoList.data.length === 0 && <h1>No Todos.</h1>}
       </section>
     </div>
     </>
