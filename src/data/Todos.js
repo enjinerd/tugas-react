@@ -28,20 +28,16 @@ import {createSlice} from '@reduxjs/toolkit'
     ]
   },
   reducers: {
-    addTodo: {
-      reducer: (state, action) => {
-        state.data.push(action.payload)
-      },
-      prepare: (state, title) => ({
-        payload: {
-          id: state.data.length + 1,
-          title,
+    addTodo: (state, action) => {
+        state.data.push({
+          id: 34,
+          title: action.payload,
           completed: false
-        }
-      })
+        })
     },
     toggleStatus: (state, action) => {
-      state.data[action.payload - 1].completed = !state.data[action.payload - 1].completed;
+      const index = state.data.findIndex((todo) => todo.id === action.payload);
+      state.data[index].completed = !state.data[index].completed
     },
     removeTodo: (state, action) => {
       const index = state.data.findIndex((todo) => todo.id === action.payload);
